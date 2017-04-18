@@ -760,6 +760,30 @@ def is_res_sub_dir(dir_name):
 def get_incremental_dex_path(cache_dir):
     return os.path.join(get_incremental_dex_dir(cache_dir), 'merged.dex')
 
+# 获取dex增量更新备份路径
+def get_backup_merged_dex_path(cache_dir):
+    return os.path.join(get_backup_inc_path_dir(cache_dir), 'merged_backup.dex')
+
+# 获取增量更新备份目录
+def get_backup_inc_path_dir(cache_dir):
+    dir_path = os.path.join(cache_dir, 'freeline-inc')
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+    return dir_path
+
+# 获取res增量更新备份路径
+def get_backup_res_pack_dir(cache_dir):
+    dir_path = os.path.join(get_backup_inc_path_dir(cache_dir), 'res-pack')
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+    return dir_path
+
+# 获取native增量更新备份路径
+def get_backup_native_dir(cache_dir):
+    dir_path = os.path.join(get_backup_inc_path_dir(cache_dir), 'native')
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+    return dir_path
 
 def get_incremental_dex_dir(cache_dir):
     dir_path = os.path.join(cache_dir, 'freeline-dexes')
